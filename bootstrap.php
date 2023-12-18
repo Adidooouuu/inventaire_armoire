@@ -6,10 +6,13 @@ use Doctrine\ORM\ORMSetup;
 
 require_once "vendor/autoload.php";
 
+$paths = [__DIR__ . "/src"];
+$isDevMode = true;
+
 // Create a simple "default" Doctrine ORM configuration for Attributes
 $config = ORMSetup::createAnnotationMetadataConfiguration(
-    paths: array(__DIR__ . "/src"),
-    isDevMode: true,
+    paths: $paths,
+    isDevMode: $isDevMode,
 );
 
 // configuring the database connection

@@ -13,21 +13,21 @@ class Vetement
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    private int|null $id = null;
+    private $id = null;
     /**
      * @ORM\Column(type="integer")
      */
-    private int $categorie_id;
+    private $categorie_id;
     /**
      * @ORM\Column(type="integer")
      */
-    private int $taux_usage_id;
+    private $taux_usage_id;
     /**
      * @ORM\Column(type="integer")
      */
-    private int $etagere_id;
+    private $etagere_id;
     /**
      * @ORM\Column(type="integer")
      */
-    private int $proprio_id;
+    private $proprio_id;
 }
