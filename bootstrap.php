@@ -8,12 +8,7 @@ require_once "vendor/autoload.php";
 
 $paths = [__DIR__ . "/src"];
 $isDevMode = true;
-
-// Create a simple "default" Doctrine ORM configuration for Attributes
-$config = ORMSetup::createAnnotationMetadataConfiguration(
-    paths: $paths,
-    isDevMode: $isDevMode,
-);
+$config = ORMSetup::createAnnotationMetadataConfiguration($paths, $isDevMode);
 
 // configuring the database connection
 $connection = DriverManager::getConnection([
