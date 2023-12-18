@@ -1,0 +1,57 @@
+explanation: |md
+  # Inventaire d'une armoire de famille
+  **Nous adopterons le point de vue d'un vêtement dans l'armoire.**
+  - Chaque vêtement possède un identifiant unique ; même si vous avez deux fois le même tee-shirt de la même couleur et de la même marque, ce n'est pas le même tee-shirt pour autant
+  - Chaque vêtement a une catégorie prédéfinie (chaussette, tee-shirt ...)
+  - Chaque vêtement a un certain taux d'usage, qu'il convient de fixer pour éviter les appellations sans aucun sens
+  - Chaque vêtement est porté durant une saison en particulier
+  - Chaque vêtement est à un emplacement particulier de l'armoire
+  - Chaque vêtement n'a qu'un seul propriétaire à la fois ; un don équivaut à un changement de propriétaire \
+  *Les clés étrangères servent à normaliser les appellations dans des tables dédiées pour faciliter la récupération des données.*
+| {near: top-center}
+
+Vetement: {
+  shape: sql_table
+  id: int {constraint: primary_key}
+  categorie_id: int {constraint: foreign_key}
+  taux_usage_id: int {constraint: foreign_key}
+  saison_id: int {constraint: foreign_key}
+  etagere_id: int {constraint: foreign_key}
+  proprio_id: int {constraint: foreign_key}
+}
+
+Vetement.categorie_id -- Categorie_habit.id
+Vetement.taux_usage_id -- Taux_usage.id
+Vetement.saison_id -- Saison.id
+Vetement.etagere_id -- Etagere.id
+Vetement.proprio_id -- Proprio.id
+
+Etagere: {
+  shape: sql_table
+  id: int {constraint: primary_key}
+  numero_etagere: int
+}
+
+Proprio: {
+  shape: sql_table
+  id: int {constraint: primary_key}
+  nom: VARCHAR(20)
+}
+
+Categorie_habit: {
+  shape: sql_table
+  id: int {constraint: primary_key}
+  nom: VARCHAR(20)
+}
+
+Saison: {
+  shape: sql_table
+  id: int {constraint: primary_key}
+  nom: VARCHAR(20)
+}
+
+Taux_usage: {
+  shape: sql_table
+  id: int {constraint: primary_key}
+  statut: VARCHAR(10)
+}
