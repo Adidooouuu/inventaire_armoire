@@ -14,6 +14,7 @@ class Donneur
      * @ORM\GeneratedValue
      */
     private $donneur_id;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -23,14 +24,17 @@ class Donneur
      * @ORM\Column(type="string")
      */
     private $prenom;
+
     /**
      * @ORM\Column(type="integer")
      */
     private $age;
+
     /**
      * @ORM\Column(type="string")
      */
     private $sexe;
+    
     /**
      * @ORM\Column(type="string")
      */
