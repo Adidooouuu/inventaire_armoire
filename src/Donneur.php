@@ -4,36 +4,36 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="vetement")
+ * @ORM\Table(name="donneur")
  */
-class Vetement
+class Donneur
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    private $vetement_id;
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $donneur_id;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
-    private $date_id;
+    private $nom;
 
     /**
      * @ORM\Column(type="string")
      */
-    private $type_vetement;
+    private $prenom;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $age;
     /**
      * @ORM\Column(type="string")
      */
-    private $taux_usage;
+    private $sexe;
     /**
-    * @ORM\Column(type="datetime")
-    */
-    private $date_reception;
+     * @ORM\Column(type="string")
+     */
+    private $ville;
 
 }
