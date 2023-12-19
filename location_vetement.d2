@@ -1,0 +1,44 @@
+# Location vêtements
+
+Vetement: {
+  shape: sql_table
+  vetement_id: int {constraint: primary_key}
+  donneur_id: int {constraint: foreign_key}
+  date_id: int {constraint: foreign_key}
+  type_vetement: String
+  taux_usage: String
+  date_reception: DateTime
+}
+
+Donneur: {
+  shape: sql_table
+  donneur_id: int {constraint: primary_key}
+  nom: String
+  prenom: String
+  age: int
+  sexe: String
+  ville: String
+}
+
+Locataire: {
+  shape: sql_table
+  locataire_id: int {constraint: primary_key}
+  date_id: int {constraint: foreign_key}
+  nom: String
+  prenom: String
+  age: int
+  sexe: String
+  ville: String
+}
+
+Date: {
+  shape: sql_table
+  date_id: int {constraint: primary_key}
+  date_debut_location: DateTime|null
+  date_fin_location: DateTime|null
+}
+
+Vetement.donneur_id -- Donneur.donneur_id
+
+Vetement.date_id -- Date.date_id
+Locataire.date_id -- Date.date_id
