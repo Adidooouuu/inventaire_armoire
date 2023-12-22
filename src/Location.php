@@ -4,20 +4,32 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="dates")
+ * @ORM\Table(name="location")
  */
-class Dates
+class Location
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    private $date_id;
+    private $location_id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $locataire_id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $vetement_id;
+
     /**
      * @ORM\Column(type="datetime")
      */
     private $date_debut_location;
+
     /**
      * @ORM\Column(type="datetime")
      */

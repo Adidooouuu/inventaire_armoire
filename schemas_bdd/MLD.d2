@@ -4,7 +4,7 @@ Vetement: {
   shape: sql_table
   vetement_id: int {constraint: primary_key}
   donneur_id: int {constraint: foreign_key}
-  periode_id: int {constraint: foreign_key}
+  location_id: int {constraint: foreign_key}
   type_vetement: String
   taux_usage: String
   date_reception: DateTime
@@ -23,7 +23,6 @@ Donneur: {
 Locataire: {
   shape: sql_table
   locataire_id: int {constraint: primary_key}
-  periode_id: int {constraint: foreign_key}
   nom: String
   prenom: String
   age: int
@@ -31,14 +30,15 @@ Locataire: {
   ville: String
 }
 
-Période de location: {
+Location: {
   shape: sql_table
-  periode_id: int {constraint: primary_key}
-  date_debut_location: DateTime|null
-  date_fin_location: DateTime|null
+  location_id: int {constraint: primary_key}
+  locataire_id: int {constraint: foreign_key}
+  vetement_id: int {constraint: foreign_key}
+  date_debut_location: DateTime
+  date_fin_location: DateTime
 }
 
 Vetement.donneur_id -- Donneur.donneur_id
-
-Vetement.periode_id -- Période de location.periode_id
-Locataire.periode_id -- Période de location.periode_id
+Vetement.vetement_id -- Location.vetement_id
+Location.locataire_id -- Locataire.locataire_id
