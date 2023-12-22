@@ -35,8 +35,8 @@ Location: {
   location_id: int {constraint: primary_key}
   locataire_id: int {constraint: foreign_key}
   vetement_id: int {constraint: foreign_key}
-  date_debut_location: DateTime|null
-  date_fin_location: DateTime|null
+  date_debut_location: DateTime
+  date_fin_location: DateTime
 }
 
 Vetement.donneur_id -- Donneur.donneur_id
