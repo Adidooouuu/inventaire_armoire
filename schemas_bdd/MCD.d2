@@ -1,1 +1,75 @@
-# incoming
+direction: down
+
+classes: {
+  labels: {
+    style: {
+      fill: white
+      font-color: darkblue
+      stroke: white
+    }
+  }
+}
+
+Vetement: {
+  shape: sql_table
+  vetement_id
+  donneur_id
+  location_id
+  type_vetement
+  taux_usage
+  date_reception
+}
+
+Donneur: {
+  shape: sql_table
+  donneur_id
+  nom
+  prenom
+  age
+  sexe
+  ville
+}
+
+Locataire: {
+  shape: sql_table
+  locataire_id
+  nom
+  prenom
+  age
+  sexe
+  ville
+}
+
+Location: {
+  shape: sql_table
+  location_id
+  locataire_id
+  vetement_id
+  date_debut_location
+  date_fin_location
+}
+
+# Labels
+Un vêtement ne peut provenir que d'un seul donneur: {
+  shape: sql_table
+  class: labels
+  Un seul donneur peut proposer plusieurs vêtements
+}
+
+Un vêtement ne peut avoir qu'une seule location à la fois: {
+  shape: sql_table
+  class: labels
+  Une location ne concerne qu'un seul vêtement
+}
+
+Une location n'est liée qu'à un seul locataire: {
+  shape: sql_table
+  class: labels
+  Un locataire peut avoir plusieurs locations à la fois
+}
+
+Vetement.donneur_id -- Un vêtement ne peut provenir que d'un seul donneur -- Donneur.donneur_id
+
+Vetement.vetement_id -- Un vêtement ne peut avoir qu'une seule location à la fois -- Location.vetement_id
+
+Location.locataire_id -- Une location n'est liée qu'à un seul locataire -- Locataire.locataire_id
